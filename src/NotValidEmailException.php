@@ -1,6 +1,6 @@
 <?php
 
-namespace Mariomka\DetectDisposableEmails;
+namespace Mariomka\DisposableEmailDetector;
 
 class NotValidEmailException extends \RuntimeException
 {

@@ -1,4 +1,4 @@
-# Detect disposable emails
+# Disposable emails detector
 A PHP package to detect disposable emails based on [ivolo/disposable-email-domains](https://github.com/ivolo/disposable-email-domains) list.
 
 ## Installation
@@ -10,9 +10,9 @@ composer require mariomka/detect-disposable-emails
 
 ## How to use
 ```php
-$disposableEmailDetector = new DisposableEmailDetector();
+$detector = new \Mariomka\DisposableEmailDetector\Detector();
 
-if($disposableEmailDetector->isDisposable('something@domain.com')) {
+if($detector->isDisposable('something@domain.com')) {
     // Disposable email
 } else {
     // Acceptable email

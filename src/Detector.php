@@ -1,8 +1,8 @@
 <?php
 
-namespace Mariomka\DetectDisposableEmails;
+namespace Mariomka\DisposableEmailDetector;
 
-class DisposableEmailDetector
+class Detector
 {
     /**
      * @var array

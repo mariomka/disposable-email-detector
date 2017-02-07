@@ -1,5 +1,5 @@
 {
-    "name": "mariomka/detect-disposable-emails",
+    "name": "mariomka/disposable-email-detector",
     "description": "A PHP package to detect disposable emails based on ivolo/disposable-email-domains list.",
     "keywords": [
         "disposable",
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mariomka\\DetectDisposableEmails\\": "src"
+            "Mariomka\\DisposableEmailDetector\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mariomka\\DetectDisposableEmails\\Test\\": "tests"
+            "Mariomka\\DisposableEmailDetector\\Test\\": "tests"
         }
     },
     "scripts": {

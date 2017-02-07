@@ -1,6 +1,6 @@
 <?php
 
-namespace Mariomka\DetectDisposableEmails\Test;
+namespace Mariomka\DisposableEmailDetector\Test;
 
 use PHPUnit\Framework\TestCase as Base;
 
