@@ -23,7 +23,7 @@ class Detector
             throw new NotValidEmailException();
         }
 
-        return array_search($this->getDomain($email), $this->getDomainList()) !== false;
+        return array_search($this->domain($email), $this->domainList()) !== false;
     }
 
     /**
@@ -33,7 +33,7 @@ class Detector
      *
      * @return string
      */
-    protected function getDomain(string $email) : string
+    protected function domain(string $email) : string
     {
         return strtolower(substr(strrchr($email, '@'), 1));
     }
@@ -43,7 +43,7 @@ class Detector
      *
      * @return array
      */
-    protected function getDomainList() : array
+    protected function domainList() : array
     {
         if (!$this->domainList) {
             $this->domainList = json_decode(file_get_contents(__DIR__ . '/../domain-list.json'));
