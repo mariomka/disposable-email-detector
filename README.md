@@ -1,2 +1,2 @@
-# detect-fake-emails
-A PHP package to detect fake emails based on GeroldSetz/Mailinator-Domains
+# Detect disposable emails
+A PHP package to detect disposable emails based on GeroldSetz/Mailinator-Domains.
