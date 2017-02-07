@@ -12,7 +12,7 @@ composer require mariomka/detect-disposable-emails
 ```php
 $emailDetector = new EmailDetector();
 
-if($emailDetector->isDisposable('something@domain.ltd')) {
+if($emailDetector->isDisposable('something@domain.com')) {
     // Disposable email
 } else {
     // Acceptable email
