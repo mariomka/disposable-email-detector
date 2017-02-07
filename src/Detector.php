@@ -10,7 +10,7 @@ class Detector
     protected $domainList;
 
     /**
-     * Checks if an email if disposable
+     * Checks if an email if disposable.
      *
      * @param string $email
      *
@@ -27,7 +27,7 @@ class Detector
     }
 
     /**
-     * Get domain from an email
+     * Get domain from an email.
      *
      * @param string $email
      *
@@ -35,11 +35,11 @@ class Detector
      */
     protected function getDomain(string $email) : string
     {
-        return strtolower(substr(strrchr($email, "@"), 1));
+        return strtolower(substr(strrchr($email, '@'), 1));
     }
 
     /**
-     * Get a domain list
+     * Get a domain list.
      *
      * @return array
      */

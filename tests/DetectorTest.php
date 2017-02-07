@@ -20,7 +20,7 @@ class DetectorTest extends TestCase
     }
 
     /** @test */
-    function it_detect_a_disposable_emails()
+    public function it_detect_a_disposable_emails()
     {
         $this->assertTrue($this->detector->isDisposable('alice@mailinator.com'));
         $this->assertTrue($this->detector->isDisposable('john@MAILINATOR.com'));
@@ -28,13 +28,13 @@ class DetectorTest extends TestCase
     }
 
     /** @test */
-    function it_detect_an_acceptable_email()
+    public function it_detect_an_acceptable_email()
     {
         $this->assertFalse($this->detector->isDisposable('alice@gmail.com'));
     }
 
     /** @test */
-    function it_throws_an_exception_if_email_is_not_valid()
+    public function it_throws_an_exception_if_email_is_not_valid()
     {
         $this->expectException(NotValidEmailException::class);
         $this->detector->isDisposable('not-valid-email');
