@@ -1,0 +1,40 @@
+{
+    "name": "mariomka/detect-disposable-emails",
+    "description": "A PHP package to detect disposable emails based on ivolo/disposable-email-domains list.",
+    "keywords": [
+        "disposable",
+        "fake",
+        "emails",
+        "email"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mario Juárez",
+            "email": "mario@mjp.one"
+        }
+    ],
+    "require": {
+        "php" : "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mariomka\\DetectDisposableEmails\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mariomka\\DetectDisposableEmails\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "update-domain-list": "wget https://github.com/ivolo/disposable-email-domains/archive/master.zip -O disposable-email-domains.zip && unzip -jo disposable-email-domains.zip disposable-email-domains-master/index.json && mv index.json domain-list.json && rm disposable-email-domains.zip"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
