@@ -1,4 +1,4 @@
-# Disposable emails detector
+# Disposable email detector
 A PHP package to detect disposable emails based on [ivolo/disposable-email-domains](https://github.com/ivolo/disposable-email-domains) list.
 
 ## Installation
