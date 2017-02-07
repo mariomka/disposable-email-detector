@@ -10,9 +10,9 @@ composer require mariomka/detect-disposable-emails
 
 ## How to use
 ```php
-$emailDetector = new EmailDetector();
+$disposableEmailDetector = new DisposableEmailDetector();
 
-if($emailDetector->isDisposable('something@domain.com')) {
+if($disposableEmailDetector->isDisposable('something@domain.com')) {
     // Disposable email
 } else {
     // Acceptable email

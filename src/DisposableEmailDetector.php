@@ -2,7 +2,7 @@
 
 namespace Mariomka\DetectDisposableEmails;
 
-class EmailDetector
+class DisposableEmailDetector
 {
     /**
      * @var array
