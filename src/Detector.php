@@ -10,7 +10,7 @@ class Detector
     protected $domainList;
 
     /**
-     * Checks if an email if disposable.
+     * Checks if an email is disposable.
      *
      * @param string $email
      *
