@@ -28,9 +28,18 @@ class DetectorTest extends TestCase
     }
 
     /** @test */
+    public function it_detect_a_disposable_wildcard_emails()
+    {
+        $this->assertTrue($this->detector->isDisposable('anything@alice.dropmail.me'));
+        $this->assertTrue($this->detector->isDisposable('john.silv@sub.sub.sub.domain.33MAIL.com'));
+        $this->assertTrue($this->detector->isDisposable('john@anything.dbo.kr'));
+    }
+
+    /** @test */
     public function it_detect_an_acceptable_email()
     {
         $this->assertFalse($this->detector->isDisposable('alice@gmail.com'));
+        $this->assertFalse($this->detector->isDisposable('mary.ken@sub.domain.com'));
     }
 
     /** @test */

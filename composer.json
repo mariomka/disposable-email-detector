@@ -32,7 +32,7 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit",
-        "update-domain-list": "wget https://github.com/ivolo/disposable-email-domains/archive/master.zip -O disposable-email-domains.zip && unzip -jo disposable-email-domains.zip disposable-email-domains-master/index.json && mv index.json domain-list.json && rm disposable-email-domains.zip"
+        "update-domain-list": "rm -rf ./disposable-email-domains && git clone --depth=1 git@github.com:ivolo/disposable-email-domains.git && rm -rf ./disposable-email-domains/.git"
     },
     "config": {
         "sort-packages": true

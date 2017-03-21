@@ -10,6 +10,11 @@ class Detector
     protected $domainList;
 
     /**
+     * @var array
+     */
+    protected $wildcardDomainList;
+
+    /**
      * Checks if an email is disposable.
      *
      * @param string $email
@@ -23,7 +28,30 @@ class Detector
             throw new NotValidEmailException();
         }
 
+        return $this->testDomain($email) || $this->testWildcardDomain($email);
+    }
+
+    /**
+     * Test if domain are listed
+     *
+     * @param $email
+     *
+     * @return bool
+     */
+    protected function testDomain($email) {
         return array_search($this->domain($email), $this->domainList()) !== false;
+    }
+
+    /**
+     * Test if wildcard domain are listed
+     *
+     * @param $email
+     *
+     * @return bool
+     */
+    protected function testWildcardDomain($email) {
+        return preg_match('#@.+(\.[^\.]+){2,}$#', $email) &&
+               array_search($this->wildcardDomain($email), $this->wildcardDomainList()) !== false;
     }
 
     /**
@@ -39,6 +67,18 @@ class Detector
     }
 
     /**
+     * Get wildcard domain from an email.
+     *
+     * @param string $email
+     *
+     * @return string
+     */
+    protected function wildcardDomain(string $email) : string
+    {
+        return strtolower(preg_replace('#^.+@.+\.([^\.]+\.[^\.]+)$#', '$1', $email));
+    }
+
+    /**
      * Get a domain list.
      *
      * @return array
@@ -46,9 +86,23 @@ class Detector
     protected function domainList() : array
     {
         if (!$this->domainList) {
-            $this->domainList = json_decode(file_get_contents(__DIR__ . '/../domain-list.json'));
+            $this->domainList = json_decode(file_get_contents(__DIR__ . '/../disposable-email-domains/index.json'));
         }
 
         return $this->domainList;
+    }
+
+    /**
+     * Get a wildcard domain list.
+     *
+     * @return array
+     */
+    protected function wildcardDomainList() : array
+    {
+        if (!$this->wildcardDomainList) {
+            $this->wildcardDomainList = json_decode(file_get_contents(__DIR__ . '/../disposable-email-domains/wildcard.json'));
+        }
+
+        return $this->wildcardDomainList;
     }
 }
