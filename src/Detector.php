@@ -32,24 +32,26 @@ class Detector
     }
 
     /**
-     * Test if domain are listed
+     * Test if domain are listed.
      *
      * @param $email
      *
      * @return bool
      */
-    protected function testDomain($email) {
+    protected function testDomain($email) : bool
+    {
         return array_search($this->domain($email), $this->domainList()) !== false;
     }
 
     /**
-     * Test if wildcard domain are listed
+     * Test if wildcard domain are listed.
      *
      * @param $email
      *
      * @return bool
      */
-    protected function testWildcardDomain($email) {
+    protected function testWildcardDomain($email) : bool
+    {
         return preg_match('#@.+(\.[^\.]+){2,}$#', $email) &&
                array_search($this->wildcardDomain($email), $this->wildcardDomainList()) !== false;
     }
